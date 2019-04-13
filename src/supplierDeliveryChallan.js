@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './supplierDeliveryChallan.css'
 import { Form, Col, Row, InputGroup, Dropdown, Table, Button } from 'react-bootstrap'
 
   class supplierDeliveryChallan extends Component{
@@ -50,35 +49,30 @@ import { Form, Col, Row, InputGroup, Dropdown, Table, Button } from 'react-boots
     };
     render(){
       return(
-      <div id="DC">
-        <h2>Delivery Challan</h2>
+      <div className="container-fluid">
+        <h4>Delivery Challan</h4>
         <Form>
-        <Row>
-          <Col sm="4">
-            <InputGroup as={Row} className="inputfield">
-              <span id="formLabel">PO no &nbsp; </span>
-              <span><Dropdown id="dropdown">
-                <Dropdown.Toggle id="supplierdropdown-basic">Select Supplier</Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item ></Dropdown.Item>
-                  <Dropdown.Item ></Dropdown.Item>
-                  <Dropdown.Item ></Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-              </span>
-            </InputGroup>
-          </Col>
-          <Col sm="4">
-            <InputGroup style={{marginBottom:"10px"}} as={Row} className="inputfield">
-              <span id="formLabel" column>DC no &nbsp;</span>
-              <span><input type="text" id="textfield" defaultValue=""/></span>
-            </InputGroup>
-          </Col>
-          <Col sm="4">
-            <Button id="DCButton" type="submit">Submit</Button>
-          </Col>
-          </Row>
-          <div className='scrollable'>
+          <div className="row">
+            <div className="col-sm-3">
+              <div>Purchase Order No</div>
+              <div>
+                <select>
+                <option>Choose...</option>
+                <option></option>
+                </select>
+              </div>
+            </div>
+            <div className="col-sm-3">
+              <div>Delivery Challan No</div>
+              <div><input type="text"/></div>
+            </div>
+            <div className="col-sm-3"></div>
+            <div className="col-sm-3">
+              <Button id="bttn" type="submit">Submit</Button>
+            </div>
+          </div>
+
+          <div className='scrollable' style={{height:"280px"}}>
             <Table responsive>
               <thead>
                 <tr>

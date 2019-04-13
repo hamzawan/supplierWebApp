@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './supplierMRN.css';
 import { Form, Row, Col, Button, Table, InputGroup, Dropdown } from 'react-bootstrap';
 
   class supplierMRN extends Component{
@@ -53,24 +52,21 @@ import { Form, Row, Col, Button, Table, InputGroup, Dropdown } from 'react-boots
     };
     render(){
       return(
-      <div id="supplierMRN">
-        <h1>MRN</h1>
+      <div className="container-fluid">
+        <h4>MRN</h4>
         <Form>
-        <Row>
-            <Col sm="3">
-              <Dropdown style={{margin: "0 0 10px 0"}} id="dropdown">
-                <Dropdown.Toggle id="dropdown-basic">Select DC no</Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item ></Dropdown.Item>
-                  <Dropdown.Item ></Dropdown.Item>
-                  <Dropdown.Item ></Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-            </Col>
-            <Col sm="6"></Col>
-            <Col sm="3"><Button id="MRNButton" type="submit">Submit</Button></Col>
-          </Row>
-          <div className='scrollable'>
+          <div className="row">
+            <div className="col-sm-4">
+              <div>Delivery Challan No</div>
+              <div><input style={{width:"60%"}} type="text"/></div>
+            </div>
+            <div className="col-sm-4"></div>
+            <div className="col-sm-4">
+              <Button id="bttn" type="submit">Submit</Button>
+            </div>
+          </div>
+
+          <div className='scrollable' style={{height:"280px"}}>
             <Table responsive>
               <thead>
                 <tr>

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './supplierPurchaseOrder.css';
 import { Form, Col, Row, InputGroup, Dropdown, Table, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -57,95 +56,74 @@ class supplierPurchaseOrder extends Component{
     };
     render(){
       return(
-      <div id="purchase">
-      <h2>Purchase Order</h2>
+      <div className="container-fluid">
+      <h4>Purchase Order</h4>
       <Form>
-        <Row>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel">Supplier Name: &nbsp; </Col>
-              <Col><Dropdown id="dropdown">
-                <Dropdown.Toggle id="purchasedropdown-basic">Select Supplier</Dropdown.Toggle>
-                <Dropdown.Menu>
-                  <Dropdown.Item ></Dropdown.Item>
-                  <Dropdown.Item ></Dropdown.Item>
-                  <Dropdown.Item ></Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown>
-              </Col>
-            </InputGroup>
-          </Col>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>Our Ref</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>Attn</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>PRC Basis</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>YR Ref</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>Lead time</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-          <Col sm>
-            <InputGroup as={Row} className="inputField">
-              <Col id="formLabel" column>Validity</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>Payment</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>Remarks</Col>
-              <Col><Form.Control type="text" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-          <Col sm>
-            <InputGroup as={Row} className="inputfield">
-              <Col id="formLabel" column>Follow up</Col>
-              <Col><Form.Control type="date" id="textfield" defaultValue=""/></Col>
-            </InputGroup>
-          </Col>
-          <Col sm></Col>
-          <Col sm><Button id="purchasebutton" type="submit">Submit</Button></Col>
-        </Row>
-        <Dropdown id="selectQuotedropdown">
-          <Dropdown.Toggle id="selectQuotedropdown-basic">Select Quotation</Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item ></Dropdown.Item>
-            <Dropdown.Item ></Dropdown.Item>
-            <Dropdown.Item ></Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
+        <div className="row">
+          <div className="col-sm-3">
+            <div>Select supplier</div>
+            <div>
+              <select>
+              <option>Choose...</option>
+              <option></option>
+              </select>
+            </div>
+          </div>
+          <div className="col-sm-3">
+            <div>Our Ref</div>
+            <div><input type="text"/></div>
+          </div>
+          <div className="col-sm-3">
+            <div>Lead Time</div>
+            <div><input type="text"/></div>
+          </div>
+          <div className="col-sm-3">
+            <div>Validity</div>
+            <div><input type="text"/></div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm-3">
+            <div>Payment</div>
+            <div><input type="text"/></div>
+          </div>
+          <div className="col-sm-3">
+            <div>PRC Basis</div>
+            <div><input type="text"/></div>
+          </div>
+          <div className="col-sm-3">
+            <div>YR Ref</div>
+            <div><input type="text"/></div>
+          </div>
+          <div className="col-sm-3">
+            <div>Attn</div>
+            <div><input type="text"/></div>
+          </div>
+        </div>
+        <div className="row">
+        <div className="col-sm-3">
+          <div>Select quotation</div>
+          <div>
+            <select>
+            <option>Choose...</option>
+            <option></option>
+            </select>
+          </div>
+        </div>
+          <div className="col-sm-3">
+            <div>Remarks</div>
+            <div><input type="text"/></div>
+          </div>
+          <div className="col-sm-3">
+            <div>Follow up</div>
+            <div><input type="date"/></div>
+          </div>
+          <div className="col-sm-3">
+            <Button id="bttn" type="submit">Submit</Button>
+          </div>
+        </div>
 
-        <div className='scrollable'>
+        <div className='scrollable' style={{height:"190px"}}>
         <Table responsive>
           <thead>
             <tr>
