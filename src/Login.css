@@ -1,0 +1,41 @@
+#login .form{
+  width: 40%;
+  margin: auto;
+  background-image: linear-gradient(to top right, gainsboro, whitesmoke, gainsboro);
+  margin-top: 40px;
+  border-radius: 15px;
+  border: 10px solid whitesmoke;
+}
+
+#login .form input[type="text"], #login input[type="email"], #login input[type="password"], #login select{
+  border: 1px solid white;
+  border-radius: 15px;
+  background-image: linear-gradient(white, gainsboro);
+  width: 100%;
+}
+
+#loginBtn{
+  background-image: linear-gradient(#4b9aa7, #3c7d83);
+  border: 1px solid #4b9aa7;
+  border-radius: 10px;
+  padding: 5px 40px;
+  margin-top: 10px;
+}
+
+#formBasicChecbox{
+  text-align: center;
+  margin-top: 20px;
+}
+
+#heading{
+  background-image: linear-gradient(#3c7d83, #4b9aa7, #4b9aa7, #3c7d83, #3c7d83);
+  color: white;
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+  padding: 10px;
+  margin-top: -45px;
+  margin-bottom: 50px;
+  height: 50px;
+  border-radius: 3px 3px 15px 15px;
+}

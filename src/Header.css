@@ -1,0 +1,66 @@
+
+/* #282622 */
+*{
+  padding: 0;
+  margin:0;
+  @import url('https://fonts.googleapis.com/css?family=Merriweather');
+  font-family: 'Merriweather', serif;
+}
+
+.centralNavMenu{
+  margin: auto;
+}
+
+#navbar{
+  padding: 0 5% 0 5%;
+  background-color: #2d2d2d;
+  border-bottom: 5px solid #4b9aa7;
+}
+
+#navbar a{
+  color: white;
+}
+
+#navbar a:hover{
+  text-decoration: none;
+  color: #4b9aa7;
+}
+
+#navbar a:active{
+  color: #4b9aa7;
+
+}
+
+.centralNavMenu span{
+  padding: 20px;
+}
+
+img{
+  width: 35px;
+  height: 35px;
+  border: 1px solid #2d2d2d;
+  border-radius: 25px;
+  margin-top: 5px;
+}
+
+.drop_down{
+  text-align: center;
+  /* background-color: dimgray; */
+  background-image: linear-gradient(#4b9aa7, #3c7d83, #4b9aa7);
+  padding: 10px;
+}
+
+.drop_down a{
+  padding: 0 2%;
+  color: gainsboro;
+  font-size: 14px;
+}
+
+.drop_down a:hover{
+  color: white;
+  text-decoration: none;
+}
+
+#basic-nav-dropdown{
+  background-color: gainsboro;
+}

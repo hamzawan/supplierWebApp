@@ -1,0 +1,61 @@
+#quote{
+  text-align: center;
+  padding-top: 10px;
+}
+
+#prepend{
+  color: gray;
+  margin-top: 10px;
+}
+
+#textfield{
+  border: white;
+  border-bottom: 1px solid gainsboro;
+  width: 110%;
+}
+
+#quote h2{
+  color: darkslategray;
+  width: 80%;
+  float: left;
+  padding-left: 15%;
+}
+
+#quote #formLabel{
+  font-size: 12px;
+}
+
+#quote .scrollable{
+  height: 230px;
+  overflow-y: scroll;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#quotebutton{
+  background-image: linear-gradient(#4b9aa7, #3c7d83);
+  color: white;
+  padding: 5px 50px;
+  margin-top: 5px;
+}
+
+#quotebutton:hover{
+    background-image: linear-gradient(#3c7d83, #4b9aa7);
+    border: 1px solid #4b9aa7;
+}
+
+#dropdown-basic{
+  background-image: linear-gradient(#4b9aa7, #3c7d83);
+}
+
+#quote #info{
+  margin-left: 20px;
+}
+
+#quote Form{
+  border-radius: 5px;
+  padding: 2%;
+  margin: 15px 5% 0 5%;
+  text-align: left;
+  background-color: white;
+}
