@@ -4,18 +4,20 @@ import {BrowserRouter as Router, Link} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt, faPhone, faMobileAlt, faGlobeAsia, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faEdit, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import Header from './Header';
 import Login from './Login';
-import supplierRfq from './supplierRFQ.js';
-import customerRfq from './customerRFQ.js';
+import supplierRFQ from './supplierRFQ.js';
+import newsupplierRFQ from './newsupplierRFQ.js';
+import newcustomerRfq from './newcustomerRFQ.js';
+import editsupplierRfq from './editsupplierRFQ'
 import supplierQuotation from './supplierQuotation';
 import customerQuotation from './customerQuotation';
 import supplierPurchaseOrder from './supplierPurchaseOrder';
 import supplierDeliveryChallan from './supplierDeliveryChallan';
 import supplierMRN from './supplierMRN';
-library.add(faMapMarkerAlt, faPhone, faMobileAlt, faGlobeAsia, faEnvelope);
+library.add(faTrashAlt, faEdit, faPencilAlt);
 
 class App extends Component {
   render() {
@@ -33,9 +35,11 @@ class App extends Component {
 
           }
             <Header />
-            <Route path="/" exact strict render={()=>{return(<h1>Home</h1>)}} />
-            <Route path="/customerRFQ" exact strict component={customerRfq} />
-            <Route path="/supplierRFQ" exact strict component={supplierRfq} />
+            <Route path="/Home" exact strict render={()=>{return(<h1>Home</h1>)}} />
+            <Route path="/newcustomerRFQ" exact strict component={newcustomerRfq} />
+            <Route path="/supplierRFQ" exact strict component={supplierRFQ} />
+            <Route path="/newsupplierRFQ" exact strict component={newsupplierRFQ} />
+            <Route path="/editsupplierRFQ" exact strict component={editsupplierRfq} />
             <Route path="/supplierQuotation" exact strict component={supplierQuotation} />
             <Route path="/customerQuotation" exact strict component={customerQuotation} />
             <Route path="/supplierPurchaseOrder" exact strict component={supplierPurchaseOrder} />

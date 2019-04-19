@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './RFQ.css';
+import './newRFQ.css';
 import { Row, InputGroup, NavDropdown, Form, Col, Button, FormGroup, Table, Dropdown } from 'react-bootstrap';
 import ReactTableContainer from "react-table-container";
 import axios from 'axios';
 
 
-class Rfq extends Component{
+class newcustomerRFQ extends Component{
     constructor(props){
       super(props);
       this.state={
@@ -122,12 +122,10 @@ class Rfq extends Component{
     }
   }
 
-
-
     render(){
       return(
       <div className="container-fluid">
-        <h4>RFQ</h4>
+        <h4>New RFQ</h4>
         <Form onSubmit={this.handleFormSubmit}>
           <div className="row">
             <div className="col-sm-3">
@@ -213,4 +211,4 @@ class Rfq extends Component{
     }
 }
 
-export default Rfq;
+export default newcustomerRFQ;

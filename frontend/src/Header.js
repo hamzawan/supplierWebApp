@@ -53,7 +53,7 @@ class Header extends Component{
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="centralNavMenu">
-              <span><Link onClick={this.noDropdown} to="/">Home</Link></span>
+              <span><Link onClick={this.noDropdown} to="/Home">Home</Link></span>
               <span><Link onClick={this.toggleSupplierDropdown}>Suppliers</Link></span>
               <span><Link onClick={this.toggleCustomerDropdown}>Customers</Link></span>
               <span><Link onClick={this.toggleAccountsDropdown}>Accounts</Link></span>
@@ -90,7 +90,7 @@ class CustomerDropdown extends Component{
   render(){
     return(
       <div className="drop_down" id="customerDropdown">
-        <Link onClick={this.noDropdown} to="/customerRFQ">RFQ</Link>
+        <Link onClick={this.noDropdown} to="/newcustomerRFQ">RFQ</Link>
         <Link onClick={this.noDropdown} to="/customerQuotation">Quotation</Link>
         <Link onClick={this.noDropdown} to="/customerPurchaseOrder">Purchase Order</Link>
         <Link onClick={this.noDropdown} to="/customerDeliverChallan">Delivery Challan</Link>

@@ -1,0 +1,38 @@
+.contain{
+  padding-top: 10px;
+  background-image: linear-gradient(gainsboro, white);
+  text-align: center;
+}
+
+.contain h4{
+  float: left;
+  padding-left: 45%;
+}
+
+#newBtn{
+  float: right;
+  margin-right: 5%;
+  padding: 8px 40px;
+  background-image: linear-gradient(#4b9aa7, #3c7d83);
+  color: white;
+}
+
+#newBtn:hover{
+  background-image: linear-gradient(#3c7d83, #4b9aa7);
+}
+
+.contain Table{
+  border-radius: 5px;
+  padding: 2% 5%;
+  margin: 15px 4% 0 4%;
+  background-color: white;
+  font-size: 14px;
+  width: 92%;
+}
+
+.contain .scrollable{
+  clear: both;
+  margin-top: 20px;
+  overflow-y: scroll;
+  text-align: center;
+}
