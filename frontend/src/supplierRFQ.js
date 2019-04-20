@@ -7,8 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     constructor(props){
       super(props);
       this.state={
-        sno:1, rows:[],
-        rfqno:'', from:'', suppliername:'', attn:'', expiry:'', notification:''
+        sno:1, rows:[["001","Ahmed","Shoaib","Anas","6/30/2019","5/31/2019"]]
       };
     }
 
@@ -34,7 +33,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     render(){
       return(
       <div className="contain">
-        <h4>RFQ</h4>
+        <h4 style={{paddingLeft:"45%"}}>RFQ</h4>
         <Button id="newBtn" type="submit" href="/newsupplierRFQ">Add New</Button>
         <div className='scrollable' style={{height:"300px"}}>
           <Table responsive>
@@ -64,7 +63,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
                 <td>{this.state.rows[i][3]}</td>
                 <td>{this.state.rows[i][4]}</td>
                 <td>{this.state.rows[i][5]}</td>
-                <td><a href="/editRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
+                <td><a href="/editsupplierRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
                     <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
               </tr>
             ))

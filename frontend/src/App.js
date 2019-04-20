@@ -8,15 +8,25 @@ import { faTrashAlt, faEdit, faPencilAlt } from '@fortawesome/free-solid-svg-ico
 import './App.css';
 import Header from './Header';
 import Login from './Login';
-import supplierRFQ from './supplierRFQ.js';
-import newsupplierRFQ from './newsupplierRFQ.js';
-import newcustomerRfq from './newcustomerRFQ.js';
-import editsupplierRfq from './editsupplierRFQ'
+
+import supplierRFQ from './supplierRFQ';
+import newsupplierRFQ from './newsupplierRFQ';
+import editsupplierRfq from './editsupplierRFQ';
 import supplierQuotation from './supplierQuotation';
-import customerQuotation from './customerQuotation';
+import newsupplierQuotation from './newsupplierQuotation';
+import editsupplierQuotation from './editsupplierQuotation';
 import supplierPurchaseOrder from './supplierPurchaseOrder';
+import newsupplierPurchaseOrder from './newsupplierPurchaseOrder';
+import editsupplierPurchaseOrder from './editsupplierPurchaseOrder';
 import supplierDeliveryChallan from './supplierDeliveryChallan';
+import newsupplierDeliveryChallan from './newsupplierDeliveryChallan';
+import editsupplierDeliveryChallan from './editsupplierDeliveryChallan';
 import supplierMRN from './supplierMRN';
+import newsupplierMRN from './newsupplierMRN';
+import editsupplierMRN from './editsupplierMRN';
+
+import newcustomerRfq from './newcustomerRFQ.js';
+import customerQuotation from './customerQuotation';
 library.add(faTrashAlt, faEdit, faPencilAlt);
 
 class App extends Component {
@@ -36,15 +46,24 @@ class App extends Component {
           }
             <Header />
             <Route path="/Home" exact strict render={()=>{return(<h1>Home</h1>)}} />
-            <Route path="/newcustomerRFQ" exact strict component={newcustomerRfq} />
             <Route path="/supplierRFQ" exact strict component={supplierRFQ} />
             <Route path="/newsupplierRFQ" exact strict component={newsupplierRFQ} />
             <Route path="/editsupplierRFQ" exact strict component={editsupplierRfq} />
             <Route path="/supplierQuotation" exact strict component={supplierQuotation} />
-            <Route path="/customerQuotation" exact strict component={customerQuotation} />
+            <Route path="/newsupplierQuotation" exact strict component={newsupplierQuotation} />
+            <Route path="/editsupplierQuotation" exact strict component={editsupplierQuotation} />
             <Route path="/supplierPurchaseOrder" exact strict component={supplierPurchaseOrder} />
+            <Route path="/newsupplierPurchaseOrder" exact strict component={newsupplierPurchaseOrder} />
+            <Route path="/editsupplierPurchaseOrder" exact strict component={editsupplierPurchaseOrder} />
             <Route path="/supplierDeliveryChallan" exact strict component={supplierDeliveryChallan} />
+            <Route path="/newsupplierDeliveryChallan" exact strict component={newsupplierDeliveryChallan} />
+            <Route path="/editsupplierDeliveryChallan" exact strict component={editsupplierDeliveryChallan} />
             <Route path="/supplierMRN" exact strict component={supplierMRN} />
+            <Route path="/newsupplierMRN" exact strict component={newsupplierMRN} />
+            <Route path="/editsupplierMRN" exact strict component={editsupplierMRN} />
+
+            <Route path="/newcustomerRFQ" exact strict component={newcustomerRfq} />
+            <Route path="/customerQuotation" exact strict component={customerQuotation} />
 
           </div>
         </Router>
