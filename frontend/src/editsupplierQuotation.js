@@ -58,7 +58,7 @@ class editsupplierQuotation extends Component{
       return(
       <div className="container-fluid">
         <h4>Edit Quotation</h4>
-          <Form>
+          <Form method="post">
             <div className="row">
               <div className="col-sm-3">
                 <div>Select supplier</div>

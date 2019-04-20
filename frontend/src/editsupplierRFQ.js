@@ -126,7 +126,7 @@ class editsupplierRfq extends Component{
       return(
       <div className="container-fluid">
         <h4>Edit RFQ</h4>
-        <Form onSubmit={this.handleFormSubmit}>
+        <Form onSubmit={this.handleFormSubmit} method="post">
           <div className="row">
             <div className="col-sm-3">
               <div>RFQ No</div>

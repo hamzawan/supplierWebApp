@@ -12,7 +12,7 @@ import './Login.css';
     render(){
       return(
       <div id="login">
-        <Form className="form">
+        <Form className="form" method="post">
           <div id="heading">LOGIN</div>
           <Form.Group controlId="formCompanyName">
             <Form.Label>Company Name</Form.Label>

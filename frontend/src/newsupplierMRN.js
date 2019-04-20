@@ -54,7 +54,7 @@ import { Form, Row, Col, Button, Table, InputGroup, Dropdown } from 'react-boots
       return(
       <div className="container-fluid">
         <h4>New MRN</h4>
-        <Form>
+        <Form method="post">
           <div className="row">
             <div className="col-sm-4">
               <div>Delivery Challan No</div>

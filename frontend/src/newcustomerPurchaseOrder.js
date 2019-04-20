@@ -58,7 +58,7 @@ class newcustomerPurchaseOrder extends Component{
       return(
       <div className="container-fluid">
       <h4>New Purchase Order</h4>
-      <Form>
+      <Form method="post">
         <div className="row">
           <div className="col-sm-3">
             <div>Select supplier</div>
