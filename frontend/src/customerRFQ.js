@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import './supplierRFQ.css';
 import { Button, Table, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 
-
-  class supplierRfq extends Component{
+  class customererRfq extends Component{
     constructor(props){
       super(props);
       this.state={
-<<<<<<< HEAD
-        sno:1, rows:[],
-        rfqno:'', from:'', suppliername:'', attn:'', expiry:'', notification:'', rfq_header: []
-=======
         sno:1, rows:[["001","Ahmed","Shoaib","Anas","6/30/2019","5/31/2019"]]
->>>>>>> 1d1a16dafc3979b42791970e2b0b085c39ffe670
       };
     }
 
@@ -37,22 +30,11 @@ import axios from 'axios';
       });
   };
 
-    componentDidMount(){
-      axios.get('http://127.0.0.1:8000/api/rfq_header/')
-            .then(res => {
-              this.setState({
-                rfq_header : res.data
-              });
-              console.log(this.state.rfq_header);
-            })
-
-    }
-
     render(){
       return(
       <div className="contain">
         <h4 style={{paddingLeft:"45%"}}>RFQ</h4>
-        <Button id="newBtn" type="submit" href="/newsupplierRFQ">Add New</Button>
+        <Button id="newBtn" type="submit" href="/newcustomerRFQ">Add New</Button>
         <div className='scrollable' style={{height:"300px"}}>
           <Table responsive>
             <thead>
@@ -69,17 +51,7 @@ import axios from 'axios';
             </thead>
             <tbody>
             {
-              this.state.rfq_header.map((item,i)=> (
-                <tr key={i}>
-                <td>{this.state.sno++}</td>
-                <td>{item.rfq_no}</td>
-                <td>{item._from}</td>
-                <td>{item.supplier_id}</td>
-                <td>{item.attn}</td>
-                <td>{item.follow_up}</td>
-                <td>{item.follow_up_expiry}</td>
-                </tr>
-              ))
+              // display table content
             }
             {
               this.state.rows.map((item, i) => (
@@ -91,7 +63,7 @@ import axios from 'axios';
                 <td>{this.state.rows[i][3]}</td>
                 <td>{this.state.rows[i][4]}</td>
                 <td>{this.state.rows[i][5]}</td>
-                <td><a href="/editsupplierRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
+                <td><a href="/editcustomerRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
                     <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
               </tr>
             ))
@@ -107,4 +79,4 @@ import axios from 'axios';
   }
 }
 
-export default supplierRfq;
+export default customererRfq;

@@ -16,7 +16,7 @@ Form{
   color: darkslategray;
 }
 
-input[type="text"], input[type="date"]{
+input[type="text"], input[type="date"], input[type="number"]{
   border: 1px solid white;
   border-bottom: 1px solid gainsboro;
   width: 80%;

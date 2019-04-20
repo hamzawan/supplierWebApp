@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Col, Row, InputGroup, Dropdown, Table, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class Quotation extends Component{
+class customerQuotation extends Component{
     constructor(props){
       super(props);
       this.state={
@@ -57,8 +57,8 @@ class Quotation extends Component{
     render(){
       return(
       <div className="container-fluid">
-        <h4>Supplier Quotation</h4>
-          <Form>
+        <h4>New Quotation</h4>
+          <Form method="post">
             <div className="row">
               <div className="col-sm-3">
                 <div>Select supplier</div>
@@ -71,7 +71,7 @@ class Quotation extends Component{
               </div>
               <div className="col-sm-3">
                 <div>Our Ref</div>
-                <div><input type="text"/></div>
+                <div><input type="number"/></div>
               </div>
               <div className="col-sm-3">
                 <div>Lead Time</div>
@@ -207,4 +207,4 @@ class Quotation extends Component{
   }
 }
 
-export default Quotation;
+export default customerQuotation;

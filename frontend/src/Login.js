@@ -12,7 +12,7 @@ import './Login.css';
     render(){
       return(
       <div id="login">
-        <Form className="form">
+        <Form className="form" method="post">
           <div id="heading">LOGIN</div>
           <Form.Group controlId="formCompanyName">
             <Form.Label>Company Name</Form.Label>
@@ -31,7 +31,7 @@ import './Login.css';
 
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
-            <Form.Control type="text" placeholder="Enter User Name:" />
+            <Form.Control type="email" placeholder="Enter User Name:" />
           </Form.Group>
 
           <Form.Group cont  rolId="formBasicPassword">

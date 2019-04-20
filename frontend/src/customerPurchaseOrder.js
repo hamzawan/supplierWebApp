@@ -2,19 +2,12 @@ import React, { Component } from 'react';
 import './supplierRFQ.css';
 import { Button, Table, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import axios from 'axios';
 
-
-  class supplierRfq extends Component{
+  class customerQuotation extends Component{
     constructor(props){
       super(props);
       this.state={
-<<<<<<< HEAD
-        sno:1, rows:[],
-        rfqno:'', from:'', suppliername:'', attn:'', expiry:'', notification:'', rfq_header: []
-=======
-        sno:1, rows:[["001","Ahmed","Shoaib","Anas","6/30/2019","5/31/2019"]]
->>>>>>> 1d1a16dafc3979b42791970e2b0b085c39ffe670
+        sno:1, rows:[["Ahmed","1","2-3 weeks","10 days","advance","Ex Works Karachi","aws11","Anas","free delivery","5/31/2019"]]
       };
     }
 
@@ -37,49 +30,32 @@ import axios from 'axios';
       });
   };
 
-    componentDidMount(){
-      axios.get('http://127.0.0.1:8000/api/rfq_header/')
-            .then(res => {
-              this.setState({
-                rfq_header : res.data
-              });
-              console.log(this.state.rfq_header);
-            })
-
-    }
-
     render(){
       return(
       <div className="contain">
-        <h4 style={{paddingLeft:"45%"}}>RFQ</h4>
-        <Button id="newBtn" type="submit" href="/newsupplierRFQ">Add New</Button>
+        <h4 style={{paddingLeft:"40%"}}>Purchase Order</h4>
+        <Button id="newBtn" type="submit" href="/newcustomerPurchaseOrder">Add New</Button>
         <div className='scrollable' style={{height:"300px"}}>
           <Table responsive>
             <thead>
               <tr>
                 <th>SNo</th>
-                <th>RFQ No</th>
-                <th>From</th>
                 <th>Supplier Name</th>
+                <th>Our RFQ</th>
+                <th>Lead Time</th>
+                <th>Validity</th>
+                <th>Payment</th>
+                <th>PRC Basis</th>
+                <th>YR Ref</th>
                 <th>Attn</th>
-                <th>Expiry Date</th>
-                <th>Notification</th>
+                <th>Remarks</th>
+                <th>Follow Up</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
             {
-              this.state.rfq_header.map((item,i)=> (
-                <tr key={i}>
-                <td>{this.state.sno++}</td>
-                <td>{item.rfq_no}</td>
-                <td>{item._from}</td>
-                <td>{item.supplier_id}</td>
-                <td>{item.attn}</td>
-                <td>{item.follow_up}</td>
-                <td>{item.follow_up_expiry}</td>
-                </tr>
-              ))
+              // display table content
             }
             {
               this.state.rows.map((item, i) => (
@@ -91,7 +67,11 @@ import axios from 'axios';
                 <td>{this.state.rows[i][3]}</td>
                 <td>{this.state.rows[i][4]}</td>
                 <td>{this.state.rows[i][5]}</td>
-                <td><a href="/editsupplierRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
+                <td>{this.state.rows[i][6]}</td>
+                <td>{this.state.rows[i][7]}</td>
+                <td>{this.state.rows[i][8]}</td>
+                <td>{this.state.rows[i][9]}</td>
+                <td><a href="/editcustomerPurchaseOrder"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
                     <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
               </tr>
             ))
@@ -107,4 +87,4 @@ import axios from 'axios';
   }
 }
 
-export default supplierRfq;
+export default customerQuotation;
