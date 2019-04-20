@@ -2,13 +2,15 @@ import React, { Component } from 'react';
 import './supplierRFQ.css';
 import { Button, Table, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+
 
   class supplierRfq extends Component{
     constructor(props){
       super(props);
       this.state={
         sno:1, rows:[],
-        rfqno:'', from:'', suppliername:'', attn:'', expiry:'', notification:''
+        rfqno:'', from:'', suppliername:'', attn:'', expiry:'', notification:'', rfq_header: []
       };
     }
 
@@ -31,6 +33,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
       });
   };
 
+    componentDidMount(){
+      axios.get('http://127.0.0.1:8000/api/rfq_header/')
+            .then(res => {
+              this.setState({
+                rfq_header : res.data
+              });
+              console.log(this.state.rfq_header);
+            })
+
+    }
+
     render(){
       return(
       <div className="contain">
@@ -52,7 +65,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
             </thead>
             <tbody>
             {
-              // display table content
+              this.state.rfq_header.map((item,i)=> (
+                <tr key={i}>
+                <td>{this.state.sno++}</td>
+                <td>{item.rfq_no}</td>
+                <td>{item._from}</td>
+                <td>{item.supplier_id}</td>
+                <td>{item.attn}</td>
+                <td>{item.follow_up}</td>
+                <td>{item.follow_up_expiry}</td>
+                </tr>
+              ))
             }
             {
               this.state.rows.map((item, i) => (

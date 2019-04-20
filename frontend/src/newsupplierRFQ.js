@@ -88,7 +88,9 @@ class newsupplierRFQ extends Component{
           })
         }
 
-  handleFormSubmit = event => {
+
+
+  handleFormSubmit = async (event) => {
     event.preventDefault();
     let row = this.state.rows;
     const rfq_no = event.target.elements.rfq_no.value;
@@ -99,7 +101,18 @@ class newsupplierRFQ extends Component{
 
     console.log(rfq_no);
 
-    axios.post('http://127.0.0.1:8000/api/rfq_header/',{
+    for (var i = 0; i < row.length; i++) {
+      console.log(row[i][1]);
+      await axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
+          item_name: row[i][1],
+          item_description: row[i][3],
+          quantity: row[i][4],
+          remarks: row[i][5],
+          rfq_supplier_id: 1
+      })
+    }
+
+  await  axios.post('http://127.0.0.1:8000/api/rfq_header/',{
         rfq_no: rfq_no,
         _from: rfq_from,
         attn: rfq_attn,
@@ -110,17 +123,11 @@ class newsupplierRFQ extends Component{
     .then(res => console.log(res))
     .catch(err => console.log(err));
 
-    for (var i = 0; i < row.length; i++) {
-      console.log(row[i][1]);
-      axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
-          item_name: row[i][1],
-          item_description: row[i][3],
-          quantity: row[i][4],
-          remarks: row[i][5],
-          rfq_supplier_id: 1
-      })
-    }
+    window.location.reload();
+
   }
+
+
 
     render(){
       return(
