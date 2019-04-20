@@ -25,8 +25,21 @@ import supplierMRN from './supplierMRN';
 import newsupplierMRN from './newsupplierMRN';
 import editsupplierMRN from './editsupplierMRN';
 
-import newcustomerRfq from './newcustomerRFQ.js';
+import customerRFQ from './customerRFQ';
+import newcustomerRFQ from './newcustomerRFQ';
+import editcustomerRfq from './editcustomerRFQ';
 import customerQuotation from './customerQuotation';
+import newcustomerQuotation from './newcustomerQuotation';
+import editcustomerQuotation from './editcustomerQuotation';
+import customerPurchaseOrder from './customerPurchaseOrder';
+import newcustomerPurchaseOrder from './newcustomerPurchaseOrder';
+import editcustomerPurchaseOrder from './editcustomerPurchaseOrder';
+import customerDeliveryChallan from './customerDeliveryChallan';
+import newcustomerDeliveryChallan from './newcustomerDeliveryChallan';
+import editcustomerDeliveryChallan from './editcustomerDeliveryChallan';
+import customerMRN from './supplierMRN';
+import newcustomerMRN from './newsupplierMRN';
+import editcustomerMRN from './editsupplierMRN';
 library.add(faTrashAlt, faEdit, faPencilAlt);
 
 class App extends Component {
@@ -45,6 +58,7 @@ class App extends Component {
 
           }
             <Header />
+
             <Route path="/Home" exact strict render={()=>{return(<h1>Home</h1>)}} />
             <Route path="/supplierRFQ" exact strict component={supplierRFQ} />
             <Route path="/newsupplierRFQ" exact strict component={newsupplierRFQ} />
@@ -62,8 +76,21 @@ class App extends Component {
             <Route path="/newsupplierMRN" exact strict component={newsupplierMRN} />
             <Route path="/editsupplierMRN" exact strict component={editsupplierMRN} />
 
-            <Route path="/newcustomerRFQ" exact strict component={newcustomerRfq} />
+            <Route path="/customerRFQ" exact strict component={customerRFQ} />
+            <Route path="/newcustomerRFQ" exact strict component={newcustomerRFQ} />
+            <Route path="/editcustomerRFQ" exact strict component={editcustomerRfq} />
             <Route path="/customerQuotation" exact strict component={customerQuotation} />
+            <Route path="/newcustomerQuotation" exact strict component={newcustomerQuotation} />
+            <Route path="/editcustomerQuotation" exact strict component={editcustomerQuotation} />
+            <Route path="/customerPurchaseOrder" exact strict component={customerPurchaseOrder} />
+            <Route path="/newcustomerPurchaseOrder" exact strict component={newcustomerPurchaseOrder} />
+            <Route path="/editcustomerPurchaseOrder" exact strict component={editcustomerPurchaseOrder} />
+            <Route path="/customerDeliveryChallan" exact strict component={customerDeliveryChallan} />
+            <Route path="/newcustomerDeliveryChallan" exact strict component={newcustomerDeliveryChallan} />
+            <Route path="/editcustomerDeliveryChallan" exact strict component={editcustomerDeliveryChallan} />
+            <Route path="/customerMRN" exact strict component={customerMRN} />
+            <Route path="/newcustomerMRN" exact strict component={newcustomerMRN} />
+            <Route path="/editcustomerMRN" exact strict component={editcustomerMRN} />
 
           </div>
         </Router>

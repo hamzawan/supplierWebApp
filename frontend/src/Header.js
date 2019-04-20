@@ -90,18 +90,24 @@ class CustomerDropdown extends Component{
   render(){
     return(
       <div className="drop_down" id="customerDropdown">
-        <Link onClick={this.noDropdown} to="/newcustomerRFQ">RFQ</Link>
+        <Link onClick={this.noDropdown} to="/customerRFQ">RFQ</Link>
         <Link onClick={this.noDropdown} to="/customerQuotation">Quotation</Link>
         <Link onClick={this.noDropdown} to="/customerPurchaseOrder">Purchase Order</Link>
-        <Link onClick={this.noDropdown} to="/customerDeliverChallan">Delivery Challan</Link>
-        <Link onClick={this.noDropdown} to="/customerMRNstatus">MRN status</Link>
-        <Link onClick={this.noDropdown} to="/customerInvoice">Invoice</Link>
+        <Link onClick={this.noDropdown} to="/customerDeliveryChallan">Delivery Challan</Link>
+        <Link onClick={this.noDropdown} to="/customerMRN">MRN status</Link>
       </div>
     );
   }
 }
 
 class SupplierDropdown extends Component{
+  noDropdown(){
+    this.setState({
+      accountsDropdown: false,
+      supplierDropdown: false,
+      customerDropdown: false
+    });
+  }
   render(){
     return(
       <div className="drop_down" id="SupplierDropdown">
@@ -116,6 +122,13 @@ class SupplierDropdown extends Component{
 }
 
 class AccountsDropdown extends Component{
+  noDropdown(){
+    this.setState({
+      accountsDropdown: false,
+      supplierDropdown: false,
+      customerDropdown: false
+    });
+  }
   render(){
     return(
       <div className="drop_down" id="customerDropdown">

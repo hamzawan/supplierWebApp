@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Col, Row, InputGroup, Dropdown, Table, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class newsupplierPurchaseOrder extends Component{
+class newcustomerPurchaseOrder extends Component{
     constructor(props){
       super(props);
       this.state={
@@ -173,4 +173,4 @@ class newsupplierPurchaseOrder extends Component{
   }
 }
 
-export default newsupplierPurchaseOrder;
+export default newcustomerPurchaseOrder;

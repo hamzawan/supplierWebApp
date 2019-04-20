@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Form, Col, Row, InputGroup, Dropdown, Table, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-class newsupplierPurchaseOrder extends Component{
+class editcustomerPurchaseOrder extends Component{
     constructor(props){
       super(props);
       this.state={
@@ -57,7 +57,7 @@ class newsupplierPurchaseOrder extends Component{
     render(){
       return(
       <div className="container-fluid">
-      <h4>New Purchase Order</h4>
+      <h4>Edit Purchase Order</h4>
       <Form>
         <div className="row">
           <div className="col-sm-3">
@@ -101,6 +101,15 @@ class newsupplierPurchaseOrder extends Component{
           </div>
         </div>
         <div className="row">
+        <div className="col-sm-3">
+          <div>Select quotation</div>
+          <div>
+            <select>
+            <option>Choose...</option>
+            <option></option>
+            </select>
+          </div>
+        </div>
           <div className="col-sm-3">
             <div>Remarks</div>
             <div><input type="text"/></div>
@@ -109,24 +118,12 @@ class newsupplierPurchaseOrder extends Component{
             <div>Follow up</div>
             <div><input type="date"/></div>
           </div>
-          <div className="col-sm-3"></div>
           <div className="col-sm-3">
-            <Button id="bttn" type="submit">Submit</Button>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-3">
-            <div>Select quotation</div>
-            <div>
-              <select>
-              <option>Choose...</option>
-              <option></option>
-              </select>
-            </div>
+            <Button id="bttn" type="submit">Done</Button>
           </div>
         </div>
 
-        <div className='scrollable' style={{height:"150px"}}>
+        <div className='scrollable' style={{height:"190px"}}>
         <Table responsive>
           <thead>
             <tr>
@@ -173,4 +170,4 @@ class newsupplierPurchaseOrder extends Component{
   }
 }
 
-export default newsupplierPurchaseOrder;
+export default editcustomerPurchaseOrder;

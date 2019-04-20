@@ -3,11 +3,11 @@ import './supplierRFQ.css';
 import { Button, Table, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-  class supplierQuotation extends Component{
+  class customererRfq extends Component{
     constructor(props){
       super(props);
       this.state={
-        sno:1, rows:[["Ahmed","1","2-3 weeks","10 days","advance","Ex Works Karachi","aws11","Anas","free delivery","5/31/2019"]]
+        sno:1, rows:[["001","Ahmed","Shoaib","Anas","6/30/2019","5/31/2019"]]
       };
     }
 
@@ -33,23 +33,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
     render(){
       return(
       <div className="contain">
-        <h4 style={{paddingLeft:"40%"}}>Purchase Order</h4>
-        <Button id="newBtn" type="submit" href="/newsupplierPurchaseOrder">Add New</Button>
+        <h4 style={{paddingLeft:"45%"}}>RFQ</h4>
+        <Button id="newBtn" type="submit" href="/newcustomerRFQ">Add New</Button>
         <div className='scrollable' style={{height:"300px"}}>
           <Table responsive>
             <thead>
               <tr>
                 <th>SNo</th>
+                <th>RFQ No</th>
+                <th>From</th>
                 <th>Supplier Name</th>
-                <th>Our RFQ</th>
-                <th>Lead Time</th>
-                <th>Validity</th>
-                <th>Payment</th>
-                <th>PRC Basis</th>
-                <th>YR Ref</th>
                 <th>Attn</th>
-                <th>Remarks</th>
-                <th>Follow Up</th>
+                <th>Expiry Date</th>
+                <th>Notification</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -67,11 +63,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
                 <td>{this.state.rows[i][3]}</td>
                 <td>{this.state.rows[i][4]}</td>
                 <td>{this.state.rows[i][5]}</td>
-                <td>{this.state.rows[i][6]}</td>
-                <td>{this.state.rows[i][7]}</td>
-                <td>{this.state.rows[i][8]}</td>
-                <td>{this.state.rows[i][9]}</td>
-                <td><a href="/editsupplierPurchaseOrder"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
+                <td><a href="/editcustomerRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
                     <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
               </tr>
             ))
@@ -87,4 +79,4 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   }
 }
 
-export default supplierQuotation;
+export default customererRfq;

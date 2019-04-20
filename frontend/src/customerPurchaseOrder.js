@@ -3,7 +3,7 @@ import './supplierRFQ.css';
 import { Button, Table, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-  class supplierQuotation extends Component{
+  class customerQuotation extends Component{
     constructor(props){
       super(props);
       this.state={
@@ -34,7 +34,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
       return(
       <div className="contain">
         <h4 style={{paddingLeft:"40%"}}>Purchase Order</h4>
-        <Button id="newBtn" type="submit" href="/newsupplierPurchaseOrder">Add New</Button>
+        <Button id="newBtn" type="submit" href="/newcustomerPurchaseOrder">Add New</Button>
         <div className='scrollable' style={{height:"300px"}}>
           <Table responsive>
             <thead>
@@ -71,7 +71,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
                 <td>{this.state.rows[i][7]}</td>
                 <td>{this.state.rows[i][8]}</td>
                 <td>{this.state.rows[i][9]}</td>
-                <td><a href="/editsupplierPurchaseOrder"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
+                <td><a href="/editcustomerPurchaseOrder"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
                     <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
               </tr>
             ))
@@ -87,4 +87,4 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   }
 }
 
-export default supplierQuotation;
+export default customerQuotation;
