@@ -1,7 +1,7 @@
 from django.db import models
 
 class RfqSupplierHeader(models.Model):
-    rfq_no = models.CharField(max_length = 100)
+    rfq_no = models.CharField(max_length = 100, primary_key=True)
     _from = models.CharField(max_length = 100)
     attn = models.CharField(max_length = 100)
     follow_up = models.DateField(("Date"),blank=True)

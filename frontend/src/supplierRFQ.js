@@ -9,12 +9,7 @@ import axios from 'axios';
     constructor(props){
       super(props);
       this.state={
-<<<<<<< HEAD
-        sno:1, rows:[],
-        rfqno:'', from:'', suppliername:'', attn:'', expiry:'', notification:'', rfq_header: []
-=======
-        sno:1, rows:[["001","Ahmed","Shoaib","Anas","6/30/2019","5/31/2019"]]
->>>>>>> 1d1a16dafc3979b42791970e2b0b085c39ffe670
+        sno:1, rfq_header:[]
       };
     }
 
@@ -25,7 +20,7 @@ import axios from 'axios';
     };
 
     delete = index => {
-      let row = this.state.rows;
+      let row = this.state.rfq_header;
       row.splice(index,1);
       let count=1;
       {row.map((item, i) => (
@@ -36,6 +31,7 @@ import axios from 'axios';
         sno : this.state.sno-1
       });
   };
+
 
     componentDidMount(){
       axios.get('http://127.0.0.1:8000/api/rfq_header/')
@@ -78,24 +74,11 @@ import axios from 'axios';
                 <td>{item.attn}</td>
                 <td>{item.follow_up}</td>
                 <td>{item.follow_up_expiry}</td>
+                <td><a href="/editsupplierRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
+                    <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
                 </tr>
               ))
             }
-            {
-              this.state.rows.map((item, i) => (
-              <tr key={i}>
-                <td>{this.state.sno++}</td>
-                <td>{this.state.rows[i][0]}</td>
-                <td>{this.state.rows[i][1]}</td>
-                <td>{this.state.rows[i][2]}</td>
-                <td>{this.state.rows[i][3]}</td>
-                <td>{this.state.rows[i][4]}</td>
-                <td>{this.state.rows[i][5]}</td>
-                <td><a href="/editsupplierRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
-                    <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
-              </tr>
-            ))
-          }
           {
             //end display
           }

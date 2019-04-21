@@ -13,8 +13,3 @@ class RfqSupplierHeaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = RfqSupplierHeader
         fields = ('rfq_no','_from','attn','follow_up','follow_up_expiry','supplier_id')
-
-
-# class RfqTimelineSerializer(serializers.Serializer):
-#     header = RfqSupplierDetailSerializer(many=True)
-#     detail = RfqSupplierDetailSerializer(many=True)
