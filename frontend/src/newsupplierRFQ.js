@@ -88,7 +88,9 @@ class newsupplierRFQ extends Component{
           })
         }
 
-  handleFormSubmit = event => {
+
+
+  handleFormSubmit =  (event) => {
     event.preventDefault();
     let row = this.state.rows;
     const rfq_no = event.target.elements.rfq_no.value;
@@ -100,37 +102,57 @@ class newsupplierRFQ extends Component{
     console.log(rfq_no);
 
     axios.post('http://127.0.0.1:8000/api/rfq_header/',{
-        rfq_no: rfq_no,
-        _from: rfq_from,
-        attn: rfq_attn,
-        follow_up: rfq_expiry_date,
-        follow_up_expiry: rfq_notification_date,
-        supplier_id: 193
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+       rfq_no: rfq_no,
+       _from: rfq_from,
+       attn: rfq_attn,
+       follow_up: rfq_expiry_date,
+       follow_up_expiry: rfq_notification_date,
+       supplier_id: 193
+   })
+   .then(res => console.log(res))
+   .catch(err => console.log(err));
 
-    for (var i = 0; i < row.length; i++) {
-      console.log(row[i][1]);
-      axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
+
+     for(var i = 0; i < row.length; i++){
+       console.log(row);
+
+     axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
           item_name: row[i][1],
           item_description: row[i][3],
           quantity: row[i][4],
           remarks: row[i][5],
-          rfq_supplier_id: 1
+          rfq_supplier_id: rfq_no
       })
+      .then(res => console.log(res))
+      .catch(err => console.log(err));
     }
+
+
+    //   axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
+    //     item_name: "pepsi",
+    //     item_description: "coke",
+    //     quantity: 2,
+    //     remarks: "asap",
+    //     rfq_supplier_id: rfq_no
+    // })
+    // .then(res => console.log(res))
+    // .catch(err => console.log(err));
+
+      window.location.reload();
+
   }
+
+
 
     render(){
       return(
       <div className="container-fluid">
         <h4>New RFQ</h4>
-        <Form onSubmit={this.handleFormSubmit} method="post">
+        <Form onSubmit={this.handleFormSubmit}>
           <div className="row">
             <div className="col-sm-3">
               <div>RFQ No</div>
-              <div><input type="number" name="rfq_no" readonly value={this.state.supplier_rfq_no} onChange={e => this.change(e)}/></div>
+              <div><input type="text" name="rfq_no" readOnly value={this.state.supplier_rfq_no} onChange={e => this.change(e)}/></div>
             </div>
             <div className="col-sm-3">
               <div>From</div>
