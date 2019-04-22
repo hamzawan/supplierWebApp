@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './supplierRFQ.css';
 import { Button, Table, Form } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Router, Route, Link } from 'react-router-dom';
 import axios from 'axios';
 
 
@@ -18,6 +19,12 @@ import axios from 'axios';
         [e.target.name]: e.target.value
       });
     };
+
+    edit = args => {
+      console.log(args);
+      // axios.get(`/editsupplierRFQ/${args}`)
+    }
+
 
     delete = index => {
       let row = this.state.rfq_header;
@@ -74,7 +81,7 @@ import axios from 'axios';
                 <td>{item.attn}</td>
                 <td>{item.follow_up}</td>
                 <td>{item.follow_up_expiry}</td>
-                <td><a href="/editsupplierRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
+                <td><a href={`/editsupplierRFQ/${item.id}`}><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
                     <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
                 </tr>
               ))
