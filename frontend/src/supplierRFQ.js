@@ -75,7 +75,7 @@ import axios from 'axios';
                 <td>{item.follow_up}</td>
                 <td>{item.follow_up_expiry}</td>
                 <td><a href="/editsupplierRFQ"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
-                    <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
+                    <a href="#" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.delete(this.state) } }><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
                 </tr>
               ))
             }

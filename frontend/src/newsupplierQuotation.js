@@ -54,6 +54,7 @@ class supplierQuotation extends Component{
         sno : this.state.sno-1
       });
     };
+
     render(){
       return(
       <div className="container-fluid">
@@ -63,7 +64,7 @@ class supplierQuotation extends Component{
               <div className="col-sm-3">
                 <div>Select supplier</div>
                 <div>
-                  <select>
+                  <select required>
                   <option>Choose...</option>
                   <option></option>
                   </select>
@@ -71,39 +72,39 @@ class supplierQuotation extends Component{
               </div>
               <div className="col-sm-3">
                 <div>Our Ref</div>
-                <div><input type="number"/></div>
+                <div><input type="number" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>Lead Time</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>Validity</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
             </div>
             <div className="row">
               <div className="col-sm-3">
                 <div>Payment</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>PRC Basis</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>YR Ref</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>Attn</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
             </div>
             <div className="row">
               <div className="col-sm-3">
                 <div>Remarks</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3"></div>
               <div className="col-sm-3"></div>
@@ -185,7 +186,7 @@ class supplierQuotation extends Component{
                 <td>{this.state.rows[i][3]}</td>
                 <td>{this.state.rows[i][4]}</td>
                 <td>{this.state.rows[i][5]}</td>
-                <td><a href="#" onClick={() => this.delete(i)}>Delete</a></td>
+                <td><a href="#" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.delete(i) } }>Delete</a></td>
               </tr>
             ))
           }

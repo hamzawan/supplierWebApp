@@ -3,6 +3,7 @@ import { Navbar, NavDropdown, Nav } from 'react-bootstrap'
 import './Header.css';
 import img from './adminImg.jpg';
 import {Link} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class Header extends Component{
     constructor(props){
@@ -58,6 +59,29 @@ class Header extends Component{
               <span><Link onClick={this.toggleCustomerDropdown}>Customers</Link></span>
               <span><Link onClick={this.toggleAccountsDropdown}>Accounts</Link></span>
               <span><Link onClick={this.noDropdown} to="/companyInfo">Company Info</Link></span>
+            </Nav>
+            <Nav className="notification-icons">
+              <span>
+                <NavDropdown title=<FontAwesomeIcon style={{color:"whitesmoke"}} icon="box-open" />>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg1</NavDropdown.Item>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg2</NavDropdown.Item>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg3</NavDropdown.Item>
+                </NavDropdown>
+              </span>
+              <span>
+                <NavDropdown title=<FontAwesomeIcon style={{color:"whitesmoke"}} icon="user-friends" />>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg1</NavDropdown.Item>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg2</NavDropdown.Item>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg3</NavDropdown.Item>
+                </NavDropdown>
+              </span>
+              <span>
+                <NavDropdown title=<FontAwesomeIcon style={{color:"whitesmoke"}} icon="user-circle" />>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg1</NavDropdown.Item>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg2</NavDropdown.Item>
+                  <NavDropdown.Item style={{color:'black'}} href="#">msg3</NavDropdown.Item>
+                </NavDropdown>
+              </span>
             </Nav>
             <Nav className="ml-auto">
               <span><img src={img}/></span>

@@ -92,53 +92,59 @@ class newsupplierRFQ extends Component{
 
   handleFormSubmit =  (event) => {
     event.preventDefault();
-    let row = this.state.rows;
-    const rfq_no = event.target.elements.rfq_no.value;
-    const rfq_from = event.target.elements.rfq_from.value;
-    const rfq_attn = event.target.elements.rfq_attn.value;
-    const rfq_expiry_date = event.target.elements.rfq_expiry_date.value;
-    const rfq_notification_date = event.target.elements.rfq_notification_date.value;
-
-    console.log(rfq_no);
-
-    axios.post('http://127.0.0.1:8000/api/rfq_header/',{
-       rfq_no: rfq_no,
-       _from: rfq_from,
-       attn: rfq_attn,
-       follow_up: rfq_expiry_date,
-       follow_up_expiry: rfq_notification_date,
-       supplier_id: 193
-   })
-   .then(res => console.log(res))
-   .catch(err => console.log(err));
-
-
-     for(var i = 0; i < row.length; i++){
-       console.log(row);
-
-     axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
-          item_name: row[i][1],
-          item_description: row[i][3],
-          quantity: row[i][4],
-          remarks: row[i][5],
-          rfq_supplier_id: rfq_no
-      })
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+    if(this.state.rows.length==0)
+    {
+      alert("No products added to the table");
     }
+    else{
+      let row = this.state.rows;
+      const rfq_no = event.target.elements.rfq_no.value;
+      const rfq_from = event.target.elements.rfq_from.value;
+      const rfq_attn = event.target.elements.rfq_attn.value;
+      const rfq_expiry_date = event.target.elements.rfq_expiry_date.value;
+      const rfq_notification_date = event.target.elements.rfq_notification_date.value;
+
+      console.log(rfq_no);
+
+      axios.post('http://127.0.0.1:8000/api/rfq_header/',{
+         rfq_no: rfq_no,
+         _from: rfq_from,
+         attn: rfq_attn,
+         follow_up: rfq_expiry_date,
+         follow_up_expiry: rfq_notification_date,
+         supplier_id: 193
+     })
+     .then(res => console.log(res))
+     .catch(err => console.log(err));
 
 
-    //   axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
-    //     item_name: "pepsi",
-    //     item_description: "coke",
-    //     quantity: 2,
-    //     remarks: "asap",
-    //     rfq_supplier_id: rfq_no
-    // })
-    // .then(res => console.log(res))
-    // .catch(err => console.log(err));
+       for(var i = 0; i < row.length; i++){
+         console.log(row);
 
-      window.location.reload();
+       axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
+            item_name: row[i][1],
+            item_description: row[i][3],
+            quantity: row[i][4],
+            remarks: row[i][5],
+            rfq_supplier_id: rfq_no
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+      }
+
+
+      //   axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
+      //     item_name: "pepsi",
+      //     item_description: "coke",
+      //     quantity: 2,
+      //     remarks: "asap",
+      //     rfq_supplier_id: rfq_no
+      // })
+      // .then(res => console.log(res))
+      // .catch(err => console.log(err));
+
+        window.location.reload();
+      }
 
   }
 
@@ -152,16 +158,16 @@ class newsupplierRFQ extends Component{
           <div className="row">
             <div className="col-sm-3">
               <div>RFQ No</div>
-              <div><input type="text" name="rfq_no" readOnly value={this.state.supplier_rfq_no} onChange={e => this.change(e)}/></div>
+              <div><input type="text" name="rfq_no" required readOnly value={this.state.supplier_rfq_no} onChange={e => this.change(e)}/></div>
             </div>
             <div className="col-sm-3">
               <div>From</div>
-              <div><input type="text" name="rfq_from"/></div>
+              <div><input type="text" name="rfq_from" required/></div>
             </div>
             <div className="col-sm-3">
               <div>Supplier Name</div>
               <div>
-                <select onChange={this.handleChange}>
+                <select onChange={this.handleChange} required>
                 <option>Choose...</option>
                 <option>1</option>
                 <option>2</option>
@@ -171,17 +177,17 @@ class newsupplierRFQ extends Component{
             </div>
             <div className="col-sm-3">
               <div>Attn</div>
-              <div><input type="text" name="rfq_attn"/></div>
+              <div><input type="text" name="rfq_attn" required/></div>
             </div>
           </div>
           <div className="row">
             <div className="col-sm-3">
               <div>Expiry Date</div>
-              <div><input type="date" name="rfq_expiry_date"/></div>
+              <div><input type="date" name="rfq_expiry_date" required/></div>
             </div>
             <div className="col-sm-3">
               <div>Notification Date</div>
-              <div><input type="date" name="rfq_notification_date"/></div>
+              <div><input type="date" name="rfq_notification_date" required/></div>
             </div>
             <div className="col-sm-3"></div>
             <div className="col-sm-3">
@@ -211,7 +217,7 @@ class newsupplierRFQ extends Component{
                   <td>{this.state.rows[i][3]}</td>
                   <td>{this.state.rows[i][4]}</td>
                   <td>{this.state.rows[i][5]}</td>
-                  <td><a href="#" onClick={() => this.delete(i)}>Delete</a></td>
+                  <td><a href="#" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.delete(i) } }>Delete</a></td>
                 </tr>
               ))
             }
