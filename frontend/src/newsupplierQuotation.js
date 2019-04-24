@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Form, Col, Row, InputGroup, Dropdown, Table, Button } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
 
 class supplierQuotation extends Component{
     constructor(props){
       super(props);
       this.state={
         sno:1, rows:[],
-        item:'', brand:'', desc:'', qty:'', price:'', action:''
+        item:'', brand:'', desc:'', qty:'', price:'', action:'', rfq_no : [], row_item : []
       };
     }
     add = states => {
@@ -55,6 +56,72 @@ class supplierQuotation extends Component{
       });
     };
 
+    componentDidMount(){
+      // axios.get('http://127.0.0.1:8000/api/rfq_header/')
+      //       .then(res => {
+      //         this.setState({
+      //             rfq_header : res.data
+      //         });
+      //         const last = [];
+      //         const len = (this.state.rfq_header.length - 1 );
+      //         this.state.rfq_header.map((no,i) => {
+      //           last[i] = no.rfq_no
+      //         })
+      //         var rfq_no = last[len];
+      //         if (rfq_no) {
+      //           rfq_no = rfq_no.split('RFQ/SP/')
+      //           rfq_no = parseInt(rfq_no[1]) + 1;
+      //           rfq_no = 'RFQ/SP/'+rfq_no+'';
+      //           this.setState({
+      //               supplier_rfq_no: rfq_no
+      //           })
+      //         }
+      //         else {
+      //           this.setState({
+      //             supplier_rfq_no: 'RFQ/SP/101'
+      //           })
+      //           console.log(this.state.supplier_rfq_no);
+      //         }
+      //       })
+
+        axios.get('http://127.0.0.1:8000/api/rfq_header/')
+              .then(res => {
+                this.setState({
+                  rfq_no : res.data
+                })
+                console.log(this.state.rfq_no);
+              })
+              .catch(err => console.log(err))
+          }
+
+          onInserted = (event) => {
+            event.preventDefault();
+            const value = event.target.elements.rfq.value;
+            axios.get('http://127.0.0.1:8000/api/rfq_header/')
+                .then(res => {
+                  const data = res.data
+                  data.map(no => {
+                    if (value == no.rfq_no) {
+                      console.log(no.id);
+                      let row = this.state.rows;
+                      axios.get('http://127.0.0.1:8000/api/rfq_detail/')
+                      .then(result => {
+                          const item = result.data
+                          item.map(fk => {
+                            if (no.id == fk.rfq_supplier_id) {
+                                row.push(fk)
+                            }
+                          })
+                          this.setState({
+                            rows : row
+                          });
+                          console.log(this.state.rows);
+                      })
+                    }
+                  })
+                })
+          }
+          
     render(){
       return(
       <div className="container-fluid">
@@ -72,7 +139,7 @@ class supplierQuotation extends Component{
               </div>
               <div className="col-sm-3">
                 <div>Our Ref</div>
-                <div><input type="number" required/></div>
+                <div><input type="text"/></div>
               </div>
               <div className="col-sm-3">
                 <div>Lead Time</div>
@@ -112,6 +179,23 @@ class supplierQuotation extends Component{
                 <Button id="bttn" type="submit">Submit</Button>
               </div>
             </div>
+
+          <Form onSubmit={this.onInserted} autocomplete="off" >
+            <div className="row">
+              <div className="col-sm-3">
+                <div>Select RFQ</div>
+                <input list="rfq" type="text" name="rfq"/>
+                  <datalist id="rfq">
+                  {this.state.rfq_no.map(no => {
+                    return  <option value={no.rfq_no}/>})
+                  }
+                  </datalist>
+                </div>
+              <div className="col-sm-3">
+                  <Button id="bttn" type="submit">Insert</Button>
+              </div>
+            </div>
+              </Form>
         {
           // <Row>
           //   <Col md>
@@ -169,10 +253,10 @@ class supplierQuotation extends Component{
               <tr>
                 <th>SNo.</th>
                 <th>Item</th>
-                <th>Brand</th>
                 <th>Description</th>
                 <th>Quantity</th>
-                <th>Price</th>
+                <th>Unit</th>
+                <th>U/Price</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -180,25 +264,30 @@ class supplierQuotation extends Component{
             {
               this.state.rows.map((item, i) => (
               <tr key={i}>
-                <td>{this.state.rows[i][0]}</td>
-                <td>{this.state.rows[i][1]}</td>
-                <td>{this.state.rows[i][2]}</td>
-                <td>{this.state.rows[i][3]}</td>
-                <td>{this.state.rows[i][4]}</td>
-                <td>{this.state.rows[i][5]}</td>
-                <td><a href="#" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.delete(i) } }>Delete</a></td>
+                <td>{i+1}</td>
+                <td><Form.Control name="item" placeholder="unit" className="t_field" type="text" value={item.item_name} onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="item" placeholder="unit" className="t_field" type="text" value={item.item_description} onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="item" placeholder="unit" className="t_field" type="text" value={item.quantity} onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="item" placeholder="unit" className="t_field" type="text" value="" onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="item" placeholder="unit price" className="t_field" type="text" value="" onChange={e => this.change(e)} /></td>
+                <td><a href="#" onClick={() => this.delete(i)}>Delete</a></td>
               </tr>
             ))
           }
-            <tr>
-              <td></td>
-              <td><Form.Control name="item" placeholder="Item" className="t_field" type="text" value={this.state.item} onChange={e => this.change(e)} /></td>
-              <td><Form.Control name="brand" placeholder="Brand" className="t_field" type="text" value={this.state.brand} onChange={e => this.change(e)} /></td>
-              <td><Form.Control name="desc" placeholder="description" className="t_field" type="text" value={this.state.desc} onChange={e => this.change(e)} /></td>
-              <td><Form.Control name="qty" placeholder="quantity" className="t_field" type="text" value={this.state.qty} onChange={e => this.change(e)} /></td>
-              <td><Form.Control name="price" placeholder="price" className="t_field" type="text" value={this.state.price} onChange={e => this.change(e)} /></td>
-              <td><a href="#" onClick={()=> this.add(this.state)}>Add</a></td>
-            </tr>
+          {
+            this.state.row_item.map((item,i) => {
+      return( <tr>
+                <td>{i}</td>
+                <td><Form.Control name="item" placeholder="Item" className="t_field" type="text" value={item.item_name} onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="brand" placeholder="Brand" className="t_field" type="text" value={this.state.brand} onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="desc" placeholder="description" className="t_field" type="text" value={this.state.desc} onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="qty" placeholder="quantity" className="t_field" type="text" value={this.state.qty} onChange={e => this.change(e)} /></td>
+                <td><Form.Control name="price" placeholder="price" className="t_field" type="text" value={this.state.price} onChange={e => this.change(e)} /></td>
+                <td><a href="#" onClick={()=> this.add(this.state)}>Add</a></td>
+              </tr>
+            )
+            })
+          }
             </tbody>
           </Table>
           </div>
