@@ -121,7 +121,7 @@ class supplierQuotation extends Component{
                   })
                 })
           }
-
+          
     render(){
       return(
       <div className="container-fluid">
@@ -131,7 +131,7 @@ class supplierQuotation extends Component{
               <div className="col-sm-3">
                 <div>Select supplier</div>
                 <div>
-                  <select>
+                  <select required>
                   <option>Choose...</option>
                   <option></option>
                   </select>
@@ -143,35 +143,35 @@ class supplierQuotation extends Component{
               </div>
               <div className="col-sm-3">
                 <div>Lead Time</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>Validity</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
             </div>
             <div className="row">
               <div className="col-sm-3">
                 <div>Payment</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>PRC Basis</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>YR Ref</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3">
                 <div>Attn</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
             </div>
             <div className="row">
               <div className="col-sm-3">
                 <div>Remarks</div>
-                <div><input type="text"/></div>
+                <div><input type="text" required/></div>
               </div>
               <div className="col-sm-3"></div>
               <div className="col-sm-3"></div>

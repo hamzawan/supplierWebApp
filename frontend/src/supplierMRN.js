@@ -54,7 +54,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
                 <td>{this.state.sno++}</td>
                 <td>{this.state.rows[i][0]}</td>
                 <td><a href="/editsupplierMRN"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
-                    <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
+                    <a href="#" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.delete(this.state) } }><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
               </tr>
             ))
           }

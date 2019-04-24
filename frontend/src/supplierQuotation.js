@@ -70,7 +70,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
                 <td>{this.state.rows[i][7]}</td>
                 <td>{this.state.rows[i][8]}</td>
                 <td><a href="/editsupplierQuotation"><FontAwesomeIcon icon="pencil-alt" /></a> &nbsp;&nbsp;
-                    <a href="#" onClick={()=> this.delete(this.state)}><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
+                    <a href="#" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.delete(this.state) } }><FontAwesomeIcon style={{color:"#ff5050"}} icon="trash-alt" /></a></td>
               </tr>
             ))
           }
