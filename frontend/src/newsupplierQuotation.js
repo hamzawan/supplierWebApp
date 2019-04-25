@@ -200,7 +200,7 @@ class supplierQuotation extends Component{
               </div>
             </div>
               </Form>
-        {
+          {
           // <Row>
           //   <Col md>
           //     <InputGroup as={Row} className="inpuxsield">
