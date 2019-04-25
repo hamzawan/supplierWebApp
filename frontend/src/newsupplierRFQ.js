@@ -10,7 +10,7 @@ class newsupplierRFQ extends Component{
       super(props);
       this.state={
         sno:1, rows:[],
-        item:'', brand:'', desc:'', qty:'', remark:'', select_value:'',rfq_header:[],supplier_rfq_no:''
+        item:'', brand:'', desc:'', qty:'', remark:'', select_value:'',rfq_header:[],supplier_rfq_no:'',last_id :''
       };
     }
     add = states => {
@@ -92,59 +92,70 @@ class newsupplierRFQ extends Component{
 
   handleFormSubmit =  (event) => {
     event.preventDefault();
-    if(this.state.rows.length==0)
-    {
-      alert("No products added to the table");
-    }
-    else{
-      let row = this.state.rows;
-      const rfq_no = event.target.elements.rfq_no.value;
-      const rfq_from = event.target.elements.rfq_from.value;
-      const rfq_attn = event.target.elements.rfq_attn.value;
-      const rfq_expiry_date = event.target.elements.rfq_expiry_date.value;
-      const rfq_notification_date = event.target.elements.rfq_notification_date.value;
+    let row = this.state.rows;
+    const rfq_no = event.target.elements.rfq_no.value;
+    const rfq_from = event.target.elements.rfq_from.value;
+    const rfq_attn = event.target.elements.rfq_attn.value;
+    const rfq_expiry_date = event.target.elements.rfq_expiry_date.value;
+    const rfq_notification_date = event.target.elements.rfq_notification_date.value;
 
-      console.log(rfq_no);
+    console.log(rfq_no);
 
-      axios.post('http://127.0.0.1:8000/api/rfq_header/',{
-         rfq_no: rfq_no,
-         _from: rfq_from,
-         attn: rfq_attn,
-         follow_up: rfq_expiry_date,
-         follow_up_expiry: rfq_notification_date,
-         supplier_id: 193
-     })
-     .then(res => console.log(res))
-     .catch(err => console.log(err));
+    axios.post('http://127.0.0.1:8000/api/rfq_header/',{
+       rfq_no: rfq_no,
+       _from: rfq_from,
+       attn: rfq_attn,
+       follow_up: rfq_expiry_date,
+       follow_up_expiry: rfq_notification_date,
+       supplier_id: 193
+   })
+   .then(res => console.log(res))
+   .catch(err => console.log(err));
 
-
-       for(var i = 0; i < row.length; i++){
-         console.log(row);
-
-       axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
-            item_name: row[i][1],
-            item_description: row[i][3],
-            quantity: row[i][4],
-            remarks: row[i][5],
-            rfq_supplier_id: rfq_no
-        })
-        .then(res => console.log(res))
-        .catch(err => console.log(err));
-      }
-
-
-      //   axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
-      //     item_name: "pepsi",
-      //     item_description: "coke",
-      //     quantity: 2,
-      //     remarks: "asap",
-      //     rfq_supplier_id: rfq_no
-      // })
-      // .then(res => console.log(res))
-      // .catch(err => console.log(err));
-
-        window.location.reload();
-      }
+   axios.get('http://127.0.0.1:8000/api/rfq_header/')
+         .then(res => {
+           this.setState({
+               rfq_header : res.data
+           });
+           const last = [];
+           const len = (this.state.rfq_header.length - 1 );
+           this.state.rfq_header.map((no,i) => {
+             last[i] = no.id
+           })
+           var rfq_o = last[len];
+           console.log(rfq_o);
+           if (rfq_o) {
+             for(var i = 0; i < row.length; i++){
+               console.log(row);
+               console.log(row[i][1]);
+             axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
+                  item_name: row[i][1],
+                  item_description: row[i][3],
+                  quantity: row[i][4],
+                  remarks: row[i][5],
+                  rfq_supplier_id: rfq_o
+              })
+              .then(res => console.log(res))
+              .catch(err => console.log(err));
+            }
+           }
+           else {
+             for(var i = 0; i < row.length; i++){
+               console.log(row);
+               console.log(row[i][1]);
+             axios.post('http://127.0.0.1:8000/api/rfq_detail/',{
+                  item_name: row[i][1],
+                  item_description: row[i][3],
+                  quantity: row[i][4],
+                  remarks: row[i][5],
+                  rfq_supplier_id: 1
+              })
+              .then(res => console.log(res))
+              .catch(err => console.log(err));
+            }
+           }
+                window.location.reload();
+         })
 
   }
 
