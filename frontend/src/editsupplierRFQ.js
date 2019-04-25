@@ -36,6 +36,7 @@ class editsupplierRfq extends Component{
         });
         console.log(row);
       }
+        
     };
 
     change = e => {
