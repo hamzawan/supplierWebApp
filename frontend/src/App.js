@@ -62,7 +62,7 @@ class App extends Component {
             <Route path="/Home" exact strict render={()=>{return(<h1>Home</h1>)}} />
             <Route path="/supplierRFQ" exact strict component={supplierRFQ} />
             <Route path="/newsupplierRFQ" exact strict component={newsupplierRFQ} />
-            <Route path="/editsupplierRFQ" exact strict component={editsupplierRfq} />
+            <Route path="/editsupplierRFQ/:rfq_no" exact strict component={editsupplierRfq} />
             <Route path="/supplierQuotation" exact strict component={supplierQuotation} />
             <Route path="/newsupplierQuotation" exact strict component={newsupplierQuotation} />
             <Route path="/editsupplierQuotation" exact strict component={editsupplierQuotation} />
