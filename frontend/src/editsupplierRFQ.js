@@ -36,7 +36,7 @@ class editsupplierRfq extends Component{
         });
         console.log(row);
       }
-        
+
     };
 
     change = e => {
@@ -59,10 +59,6 @@ class editsupplierRfq extends Component{
   };
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 50c417e88aeddf3ff35c0b6566a879f5228b7d87
   componentDidMount() {
    const detailID = this.props.match.params.rfq_no;
    console.log(detailID);
@@ -113,10 +109,6 @@ class editsupplierRfq extends Component{
   // }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 50c417e88aeddf3ff35c0b6566a879f5228b7d87
 
     render(){
       return(

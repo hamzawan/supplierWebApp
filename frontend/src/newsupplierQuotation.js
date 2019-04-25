@@ -121,11 +121,6 @@ class supplierQuotation extends Component{
                   })
                 })
           }
-<<<<<<< HEAD
-
-=======
-          
->>>>>>> 50c417e88aeddf3ff35c0b6566a879f5228b7d87
     render(){
       return(
       <div className="container-fluid">
