@@ -154,7 +154,7 @@ class newsupplierRFQ extends Component{
               .catch(err => console.log(err));
             }
            }
-                window.location.reload();
+                // window.location.reload();
          })
 
   }

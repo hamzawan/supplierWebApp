@@ -35,7 +35,7 @@ class QuotationHeaderSupplier(models.Model):
     payment = models.CharField(max_length=100)
     remarks = models.CharField(max_length=100)
     follow_up = models.DateField("Follow Up",blank=True)
-    show_notification = models.BooleanField(default=False)
+    show_notification = models.CharField(max_length=100)
     supplier_id = models.IntegerField()
     company_id = models.IntegerField()
 
@@ -44,5 +44,6 @@ class QuotationDetailSupplier(models.Model):
     item_name = models.CharField(max_length=100)
     item_description = models.CharField(max_length=100)
     quantity = models.IntegerField()
+    unit = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    quotation_header_id = models.ForeignKey(QuotationHeaderSupplier,on_delete=models.CASCADE)
+    # quotation_header_id = models.ForeignKey(QuotationHeaderSupplier,on_delete=models.CASCADE)
