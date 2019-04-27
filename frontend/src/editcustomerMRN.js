@@ -58,7 +58,7 @@ import { Form, Row, Col, Button, Table, InputGroup, Dropdown } from 'react-boots
           <div className="row">
             <div className="col-sm-4">
               <div>Delivery Challan No</div>
-              <div><input style={{width:"60%"}} type="number"/></div>
+              <div><input style={{width:"60%"}} type="number" required/></div>
             </div>
             <div className="col-sm-4"></div>
             <div className="col-sm-4">
@@ -85,7 +85,7 @@ import { Form, Row, Col, Button, Table, InputGroup, Dropdown } from 'react-boots
                   <td>{this.state.rows[i][1]}</td>
                   <td>{this.state.rows[i][2]}</td>
                   <td>{this.state.rows[i][3]}</td>
-                  <td><a href="#" onClick={() => this.delete(i)}>Delete</a></td>
+                  <td><a href="#" onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.delete(i) } }>Delete</a></td>
                 </tr>
               ))
             }

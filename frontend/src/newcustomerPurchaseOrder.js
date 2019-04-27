@@ -63,7 +63,7 @@ class newcustomerPurchaseOrder extends Component{
           <div className="col-sm-3">
             <div>Select supplier</div>
             <div>
-              <select>
+              <select required>
               <option>Choose...</option>
               <option></option>
               </select>
@@ -71,43 +71,43 @@ class newcustomerPurchaseOrder extends Component{
           </div>
           <div className="col-sm-3">
             <div>Our Ref</div>
-            <div><input type="number"/></div>
+            <div><input type="number" required/></div>
           </div>
           <div className="col-sm-3">
             <div>Lead Time</div>
-            <div><input type="text"/></div>
+            <div><input type="text" required/></div>
           </div>
           <div className="col-sm-3">
             <div>Validity</div>
-            <div><input type="text"/></div>
+            <div><input type="text" required/></div>
           </div>
         </div>
         <div className="row">
           <div className="col-sm-3">
             <div>Payment</div>
-            <div><input type="text"/></div>
+            <div><input type="text" required/></div>
           </div>
           <div className="col-sm-3">
             <div>PRC Basis</div>
-            <div><input type="text"/></div>
+            <div><input type="text" required/></div>
           </div>
           <div className="col-sm-3">
             <div>YR Ref</div>
-            <div><input type="text"/></div>
+            <div><input type="text" required/></div>
           </div>
           <div className="col-sm-3">
             <div>Attn</div>
-            <div><input type="text"/></div>
+            <div><input type="text" required/></div>
           </div>
         </div>
         <div className="row">
           <div className="col-sm-3">
             <div>Remarks</div>
-            <div><input type="text"/></div>
+            <div><input type="text" required/></div>
           </div>
           <div className="col-sm-3">
             <div>Follow up</div>
-            <div><input type="date"/></div>
+            <div><input type="date" required/></div>
           </div>
           <div className="col-sm-3"></div>
           <div className="col-sm-3">

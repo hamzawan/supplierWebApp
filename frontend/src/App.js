@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Link} from 'react-router-dom';
 import Route from 'react-router-dom/Route';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt, faEdit, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faEdit, faPencilAlt, faBoxOpen, faUserFriends, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import './App.css';
 import Header from './Header';
 import Login from './Login';
@@ -40,7 +40,7 @@ import editcustomerDeliveryChallan from './editcustomerDeliveryChallan';
 import customerMRN from './supplierMRN';
 import newcustomerMRN from './newsupplierMRN';
 import editcustomerMRN from './editsupplierMRN';
-library.add(faTrashAlt, faEdit, faPencilAlt);
+library.add(faTrashAlt, faEdit, faPencilAlt, faBoxOpen, faUserFriends, faUserCircle );
 
 class App extends Component {
   render() {

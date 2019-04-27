@@ -138,6 +138,7 @@ class supplierQuotation extends Component{
                   })
                 })
           }
+<<<<<<< HEAD
 
           quotationSubmit = (e) => {
             e.preventDefault();
@@ -199,6 +200,9 @@ class supplierQuotation extends Component{
       //     console.log(this.state.input);
       // }
 
+=======
+          
+>>>>>>> b087e94a445263a245ed48f1b3dc3c6595ad3762
     render(){
       return(
       <div className="container-fluid">
@@ -208,12 +212,19 @@ class supplierQuotation extends Component{
               <div className="col-sm-3">
                 <div>Select supplier</div>
                 <div>
+<<<<<<< HEAD
                   <input list="ss" type="text" name="select_supplier"/>
                     <datalist id="ss">
                     {this.state.rfq_no.map(no => {
                       return  <option value={no.supplier_id}>{no.supplier_id}</option>})
                     }
                     </datalist>
+=======
+                  <select required>
+                  <option>Choose...</option>
+                  <option></option>
+                  </select>
+>>>>>>> b087e94a445263a245ed48f1b3dc3c6595ad3762
                 </div>
               </div>
               <div className="col-sm-3">
@@ -222,16 +233,25 @@ class supplierQuotation extends Component{
               </div>
               <div className="col-sm-3">
                 <div>Lead Time</div>
+<<<<<<< HEAD
                 <div><input type="text" name="leadtime"/></div>
               </div>
               <div className="col-sm-3">
                 <div>Validity</div>
                 <div><input type="text" name="validity"/></div>
+=======
+                <div><input type="text" required/></div>
+              </div>
+              <div className="col-sm-3">
+                <div>Validity</div>
+                <div><input type="text" required/></div>
+>>>>>>> b087e94a445263a245ed48f1b3dc3c6595ad3762
               </div>
             </div>
             <div className="row">
               <div className="col-sm-3">
                 <div>Payment</div>
+<<<<<<< HEAD
                 <div><input type="text" name="payment"/></div>
               </div>
               <div className="col-sm-3">
@@ -245,16 +265,35 @@ class supplierQuotation extends Component{
               <div className="col-sm-3">
                 <div>Attn</div>
                 <div><input type="text" name="attn"/></div>
+=======
+                <div><input type="text" required/></div>
+              </div>
+              <div className="col-sm-3">
+                <div>PRC Basis</div>
+                <div><input type="text" required/></div>
+              </div>
+              <div className="col-sm-3">
+                <div>YR Ref</div>
+                <div><input type="text" required/></div>
+              </div>
+              <div className="col-sm-3">
+                <div>Attn</div>
+                <div><input type="text" required/></div>
+>>>>>>> b087e94a445263a245ed48f1b3dc3c6595ad3762
               </div>
             </div>
             <div className="row">
               <div className="col-sm-3">
                 <div>Remarks</div>
+<<<<<<< HEAD
                 <div><input type="text" name="remarks"/></div>
               </div>
               <div className="col-sm-3">
                 <div>Follow Up</div>
                 <div><input type="date" name="follow_up"/></div>
+=======
+                <div><input type="text" required/></div>
+>>>>>>> b087e94a445263a245ed48f1b3dc3c6595ad3762
               </div>
               <div className="col-sm-3"></div>
               <div className="col-sm-3">
