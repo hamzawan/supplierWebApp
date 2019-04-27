@@ -36,6 +36,7 @@ class editsupplierRfq extends Component{
         });
         console.log(row);
       }
+
     };
 
     change = e => {
@@ -106,7 +107,6 @@ class editsupplierRfq extends Component{
   //     })
   //   }
   // }
-
 
 
 
